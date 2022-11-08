@@ -20,11 +20,15 @@ public class Exercicio implements Serializable{
 	private String name;
 	private Integer serie;
 	private Integer repeticao;
-	private String Observacao;
+	private String observacao;
 	
 	@ManyToOne 
 	@JoinColumn(name = "musculo_id")
 	private Musculo musculo;
+	
+	public Exercicio() {
+		
+	}
 
 	public Exercicio(Long id, String name, Integer serie, Integer repeticao, String observacao, Musculo musculo) {
 		super();
@@ -32,7 +36,7 @@ public class Exercicio implements Serializable{
 		this.name = name;
 		this.serie = serie;
 		this.repeticao = repeticao;
-		Observacao = observacao;
+		this.observacao = observacao;
 		this.musculo = musculo;
 	}
 
@@ -69,11 +73,11 @@ public class Exercicio implements Serializable{
 	}
 
 	public String getObservacao() {
-		return Observacao;
+		return observacao;
 	}
 
 	public void setObservacao(String observacao) {
-		Observacao = observacao;
+		this.observacao = observacao;
 	}
 
 	public Musculo getMusculo() {

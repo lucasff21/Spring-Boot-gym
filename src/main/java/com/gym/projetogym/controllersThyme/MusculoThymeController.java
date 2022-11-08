@@ -1,4 +1,4 @@
-package com.gym.projetogym.controllers;
+package com.gym.projetogym.controllersThyme;
 
 import java.util.Optional;
 

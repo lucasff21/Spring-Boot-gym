@@ -22,7 +22,7 @@ import com.gym.projetogym.repository.MusculoRepository;
 
 
 @RestController
-@RequestMapping("/musculo")
+@RequestMapping("/api/musculo")
 public class MusculoController {
 
 	@Autowired
