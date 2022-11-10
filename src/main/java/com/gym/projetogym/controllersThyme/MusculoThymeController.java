@@ -1,5 +1,6 @@
 package com.gym.projetogym.controllersThyme;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.gym.projetogym.model.DiaSemana;
 import com.gym.projetogym.model.Musculo;
+import com.gym.projetogym.repository.DiaSemanaRepository;
 import com.gym.projetogym.repository.MusculoRepository;
 
 @Controller
@@ -18,16 +21,22 @@ public class MusculoThymeController {
 	
 	@Autowired
 	private MusculoRepository musculoRep;
+	
+	@Autowired
+	private DiaSemanaRepository diaServ;
 
 	@GetMapping("/musculos")
 	public String showMusculos(Model model) {
+		
 		model.addAttribute("musculos", musculoRep.findAll());
-		return "index";
+		return "/musculo/index";
 	}
 	
 	@GetMapping("/musculos/criar")
-	public String novoMusculo(@ModelAttribute("musculo") Musculo musculo) {
-		return "create";
+	public String novoMusculo(@ModelAttribute("musculo") Musculo musculo, Model model) {
+		List<DiaSemana> listaDias = diaServ.findAll();
+		model.addAttribute("listaDias", listaDias);
+		return "/musculo/create";
 	}
 	
 	@PostMapping("/musculos/salvar")
@@ -45,7 +54,7 @@ public class MusculoThymeController {
 		}
 		
 		model.addAttribute("musculo", musculoOpt.get());
-		return "create";
+		return "/musculo/create";
 	}
 	
 	@GetMapping("/musculos/excluir/{id}")

@@ -1,0 +1,61 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bootstrap demo</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col">
+				<h2>Adicionar Musculo </h2>
+				<form action="#" th:action="@{/exercicios/salvar}" th:object="${exercicio}" method="POST">
+					<input type="hidden" id="id" th:field="*{id}">
+					<div class="mb-3">
+						<input type="text" class="form-control" id="exercicioSemana" th:field="*{name}"
+							placeholder="Nome...">
+						<br>
+						<input type="text" class="form-control" id="exercicioSemana" th:field="*{serie}"
+							placeholder="N° de Serie...">
+						<br>
+						<input type="text" class="form-control" id="exercicioSemana" th:field="*{repeticao}"
+							placeholder="N° de repetições">
+						<br>
+						<input type="text" class="form-control" id="exercicioSemana" th:field="*{carga}"
+							placeholder="Carga atual">
+						<br>
+						<input type="text" class="form-control" id="exercicioSemana" th:field="*{observacao}"
+							placeholder="Observação">
+						<br>
+						<div class="mb-3">
+							<label for="observacao" class="form-label">Musculo</label>
+							<div class="col-sm-8">
+								<select th:field="*{musculo}" class="form-control" required>
+									<option value="">Selecione o musculo...</option>
+									<th:bloclk th:each="musculo : ${listaMusculo}">
+										<option th:value="${musculo.id}" th:text="${musculo.name}"></option>
+									</th:bloclk>
+								</select>
+							</div>
+						</div>
+
+					</div>
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</form>
+			</div>
+			<div class="col-2"></div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

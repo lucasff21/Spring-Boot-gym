@@ -23,26 +23,27 @@ public class Musculo implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String descricao;
+	private String observacao;
 	
 	@OneToMany(mappedBy = "musculo")
-	@JsonIgnore
 	private List<Exercicio> exercicio = new ArrayList<>();
 	
 	@ManyToOne
-	@JoinColumn(name = "diaSemana_id")
-	private DiaSemana diaSemana;
+	@JoinColumn(name = "dia_id")
+	@JsonIgnore
+	private DiaSemana dia;
 	
 	public Musculo() {
 		
 	}
 
 
-	public Musculo(Long id, String name, String descricao) {
+	public Musculo(Long id, String name, String observacao, DiaSemana dia) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.descricao = descricao;
+		this.observacao = observacao;
+		this.dia = dia;
 	}
 
 	public Long getId() {
@@ -61,17 +62,27 @@ public class Musculo implements Serializable{
 		this.name = name;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getObservacao() {
+		return observacao;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 
 	public List<Exercicio> getExercicio() {
 		return exercicio;
 	}
+	
+	public DiaSemana getDia() {
+		return dia;
+	}
+
+
+	public void setDia(DiaSemana dia) {
+		this.dia = dia;
+	}
+
 
 	@Override
 	public int hashCode() {

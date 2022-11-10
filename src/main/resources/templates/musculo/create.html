@@ -22,9 +22,22 @@
 						<input type="text" class="form-control" id="nome" th:field="*{name}">
 					</div>
 					<div class="mb-3">
-						<label for="descricao" class="form-label">Descricao</label>
-						<input type="text" class="form-control" id="descricao" th:field="*{descricao}">
+						<label for="observacao" class="form-label">Observação</label>
+						<input type="text" class="form-control" id="observacao" th:field="*{observacao}">
 					</div>
+
+					<div class="mb-3">
+						<label for="observacao" class="form-label">Dias da semana</label>
+						<div class="col-sm-8">
+							<select th:field="*{dia}" class="form-control" required>
+							<option value="">Selecione o dia...</option>
+							<th:bloclk th:each="dia : ${listaDias}">
+								<option th:value="${dia.id}" th:text="${dia.diaSemana}"></option>
+							</th:bloclk>
+							</select>
+						</div>
+					</div>
+
 					<button type="submit" class="btn btn-primary">Enviar</button>
 				</form>
 			</div>

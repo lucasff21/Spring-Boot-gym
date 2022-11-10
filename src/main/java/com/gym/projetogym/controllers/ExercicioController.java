@@ -2,6 +2,7 @@ package com.gym.projetogym.controllers;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.gym.projetogym.controllers.dto.ExercicioDTO;
 import com.gym.projetogym.model.Exercicio;
 import com.gym.projetogym.service.ExercicioService;
 
@@ -34,9 +36,10 @@ public class ExercicioController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Exercicio>> getAllExercicio(){
-		List<Exercicio> exercicio = service.findAll();
-		return ResponseEntity.ok().body(exercicio);
+	public ResponseEntity<List<ExercicioDTO>> getAllExercicio(){
+		List<Exercicio> list = service.findAll();
+		List<ExercicioDTO> listDTO = list.stream().map(x -> new ExercicioDTO(x)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
 	}
 	
 	@GetMapping(value = "/{id}")

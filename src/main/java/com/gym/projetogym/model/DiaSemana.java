@@ -20,7 +20,7 @@ public class DiaSemana implements Serializable{
 	private Long id;
 	private String diaSemana;
 	
-	@OneToMany(mappedBy = "diaSemana")
+	@OneToMany(mappedBy = "dia")
 	private List<Musculo> musculo = new ArrayList<>();
 	
 	public DiaSemana() {

@@ -59,7 +59,7 @@ public class MusculoController {
 		if (musculoUpdate.isPresent()) {
 			Musculo _musculo = musculoUpdate.get();
 			_musculo.setName(musculo.getName());
-			_musculo.setDescricao(musculo.getDescricao());
+			_musculo.setObservacao(musculo.getObservacao());
 			return new ResponseEntity<>(musculoRepo.save(_musculo), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
