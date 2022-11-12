@@ -10,15 +10,25 @@
 </head>
 
 <body>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col">
+			
+			</div>
+			<div th:switch="${dias}" class="col">
+				
+				<h1 class="text-center" th:text="${dias.diaSemana}"></h1>
+			</div>
+			<div class="col">
+			<a href="/dias" class="btn btn-secondary">Voltar</a>
+			</div>
+		</div>
+	</div>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-2"></div>
-
 			<div th:switch="${musculos}" class="col">
-				<a href="/musculos/criar" class="btn btn-primary"><i class="fas fa-user-plus ml-2"> Add Musculo </i></a>
-				<a href="/exercicios" class="btn btn-primary"><i class="fas fa-user-plus ml-2"> Todos Exercicios
-					</i></a>
-
 				<table class="table table-striped  mt-5">
 					<thead>
 						<tr>
@@ -41,6 +51,38 @@
 								<a th:href="@{/musculos/{id}(id=${obj.id})}" class="btn btn-primary"> Alterar </a>
 								<a th:href="@{/musculos/excluir/{id}(id=${obj.id})}" class="btn btn-danger">Excluir </a>
 							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-2"></div>
+		</div>
+	</div>
+	<div class="container mt-5 border">
+		<div class="row">
+			<div class="col-2"></div>
+			<div th:switch="${exercicios}" class="col">
+				<h3 class="text-center">LISTA DE EXERCÍCIOS</h3>
+				<table class="table mt-5">
+					<thead>
+						<tr>
+							<th scope="col">Nome</th>
+							<th scope="col">Série</th>
+							<th scope="col">Repetição</th>
+							<th scope="col">Observação</th>
+							<th scope="col">Carga</th>
+							<th scope="col">Musculo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="obj :  ${exercicios}">
+							<td th:text="${obj.name}"></td>
+							<td th:text="${obj.serie}"></td>
+							<td th:text="${obj.repeticao}"></td>
+							<td th:text="${obj.observacao}"></td>
+							<td th:text="${obj.carga}"></td>
+							<td th:text="${obj.musculo.name}"></td>
+
 						</tr>
 					</tbody>
 				</table>

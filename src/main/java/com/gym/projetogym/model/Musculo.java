@@ -100,5 +100,12 @@ public class Musculo implements Serializable{
 		Musculo other = (Musculo) obj;
 		return Objects.equals(id, other.id);
 	}
+
+
+	@Override
+	public String toString() {
+		return name;
+	}
+	
 	
 }

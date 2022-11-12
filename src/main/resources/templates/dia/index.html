@@ -10,26 +10,32 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container mt-5">
 		<div class="row">
 			<div class="col-2"></div>
-
+	
 			<div th:switch="${dias}" class="col">
+			<h1 class="text-center">LISTA DE DIAS</h1>
 				<table class="table table-striped  mt-5">
 					<thead>
 						<tr>
 							<th scope="col">#</th>
 							<th scope="col">Dia da Semana</th>
 							<th scope="col">Musculo</th>
+							<th scope="col">Ações</th>
+							
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="obj :  ${dias}">
 							<th th:text="${obj.id}"></th>
-							<td th:text="${obj.diaSemana}"></td>
 							<td>
-								<a th:href="@{/dia/{id}(id=${obj.id})}" class="btn btn-primary"> Alterar </a>
-								<a th:href="@{/dia/excluir/{id}(id=${obj.id})}" class="btn btn-danger">Excluir </a>
+								<a th:text="${obj.diaSemana}" th:href="@{/dias/{id} (id=${obj.id})}"> </a>
+							</td>
+							<td th:text="${obj.musculo}"></td>
+							<td>
+								<a th:href="@{/dias/update/{id}(id=${obj.id})}" class="btn btn-primary"> Alterar </a>
+								<a th:href="@{/dias/delete/{id}(id=${obj.id})}" class="btn btn-danger">Excluir </a>
 							</td>
 						</tr>
 					</tbody>

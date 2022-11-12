@@ -29,7 +29,7 @@
 					<div class="mb-3">
 						<label for="observacao" class="form-label">Dias da semana</label>
 						<div class="col-sm-8">
-							<select th:field="*{dia}" class="form-control" required>
+							<select th:field="*{dia}" class="form-control" multiple="multiple" required>
 							<option value="">Selecione o dia...</option>
 							<th:bloclk th:each="dia : ${listaDias}">
 								<option th:value="${dia.id}" th:text="${dia.diaSemana}"></option>
