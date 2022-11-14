@@ -17,7 +17,7 @@
 			</div>
 			<div th:switch="${dias}" class="col">
 				
-				<h1 class="text-center" th:text="${dias.diaSemana}"></h1>
+				<h1 class="text-center" th:text="${dias.name}"></h1>
 			</div>
 			<div class="col">
 			<a href="/dias" class="btn btn-secondary">Voltar</a>
@@ -46,7 +46,7 @@
 								<a th:text="${obj.name}" th:href=" @{/musculos/musculo/{id} (id=${obj.id})}"></a>
 							</td>
 							<td th:text="${obj.observacao}"></td>
-							<td th:text="${obj.dia.diaSemana}"></td>
+							<td th:text="${obj.dia}"></td>
 							<td>
 								<a th:href="@{/musculos/{id}(id=${obj.id})}" class="btn btn-primary"> Alterar </a>
 								<a th:href="@{/musculos/excluir/{id}(id=${obj.id})}" class="btn btn-danger">Excluir </a>

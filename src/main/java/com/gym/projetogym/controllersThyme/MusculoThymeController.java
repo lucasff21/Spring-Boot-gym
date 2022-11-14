@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.gym.projetogym.model.DiaSemana;
+import com.gym.projetogym.model.Dia;
 import com.gym.projetogym.model.Exercicio;
 import com.gym.projetogym.model.Musculo;
 import com.gym.projetogym.repository.DiaSemanaRepository;
@@ -39,7 +39,7 @@ public class MusculoThymeController {
 	
 	@GetMapping("/musculos/criar")
 	public String novoMusculo(@ModelAttribute("musculo") Musculo musculo, Model model) {
-		List<DiaSemana> listaDias = diaServ.findAll();
+		List<Dia> listaDias = diaServ.findAll();
 		model.addAttribute("listaDias", listaDias);
 		return "/musculo/create";
 	}
@@ -52,12 +52,14 @@ public class MusculoThymeController {
 	
 	
 	@GetMapping("/musculos/{id}")
-	public String alterarMusculo(@PathVariable("id") Long id, Model model) {
+	public String alterarMusculo(@PathVariable("id") Long id, Model model, Dia dia) {
+		List<Dia> listaDias = diaServ.findAll();
 		Optional<Musculo> musculoOpt = musculoRep.findById(id);
 		if(musculoOpt.isEmpty()) {
 			throw new IllegalArgumentException("Pessoa invalida");
 		}
 		
+		model.addAttribute("listaDias", listaDias);
 		model.addAttribute("musculo", musculoOpt.get());
 		return "/musculo/create";
 	}

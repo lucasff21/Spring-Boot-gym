@@ -1,4 +1,4 @@
-package com.gym.projetogym.model;
+ package com.gym.projetogym.model;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -20,7 +20,6 @@
 				<table class="table table-striped  mt-5 text-center">
 					<thead>
 						<tr>
-							<th scope="col">#</th>
 							<th scope="col">Nome</th>
 							<th scope="col">Descrição</th>
 						</tr>
@@ -29,7 +28,6 @@
 						<tr th:each="obj :  ${musculos}">
 							<td th:text="${obj.name}"></td>
 							<td th:text="${obj.observacao}"></td>
-							<td th:text="${obj.dia.diaSemana}"></td>
 						</tr>
 					</tbody>
 				</table>

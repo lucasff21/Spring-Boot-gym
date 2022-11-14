@@ -10,15 +10,30 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container bg-light">
+		<h1 class="d-flex justify-content-center"> GYM SPRING</h1>
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link border" href="/musculos/criar">Adicionar Musculo </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link border" href="/dias">Listar Dias</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link border" href="/exercicios">Listar Exercicios</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<div class="container bg-light">
 		<div class="row">
 			<div class="col-2"></div>
-
 			<div th:switch="${musculos}" class="col">
-				<a href="/musculos/criar" class="btn btn-primary"><i class="fas fa-user-plus ml-2"> Add Musculo </i></a>
-				<a href="/exercicios" class="btn btn-primary"><i class="fas fa-user-plus ml-2"> Todos Exercicios
-					</i></a>
-
+			<h1 class="text-center">Lista De Musculos</h1>
 				<table class="table table-striped  mt-5">
 					<thead>
 						<tr>
@@ -36,7 +51,8 @@
 								<a th:text="${obj.name}" th:href=" @{/musculos/musculo/{id} (id=${obj.id})}"></a>
 							</td>
 							<td th:text="${obj.observacao}"></td>
-							<td th:text="${obj.dia.diaSemana}"></td>
+							<td th:text="${obj.dia}"></td>
+
 							<td>
 								<a th:href="@{/musculos/{id}(id=${obj.id})}" class="btn btn-primary"> Alterar </a>
 								<a th:href="@{/musculos/excluir/{id}(id=${obj.id})}" class="btn btn-danger">Excluir </a>
@@ -48,9 +64,15 @@
 			<div class="col-2"></div>
 		</div>
 	</div>
-	< <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-		</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>

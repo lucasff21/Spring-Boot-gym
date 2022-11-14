@@ -14,14 +14,15 @@
 		<div class="row">
 			<div class="col-2"></div>
 			<div class="col">
-				<h2>Adicionar Musculo </h2>
-				<form action="#" th:action="@{/exercicios/salvar}" th:object="${dia}" method="POST">
+				<h2>Adicionar Dia </h2>
+				<form action="#" th:action="@{/dias/salvar}" th:object="${dia}" method="POST">
 					<input type="hidden" id="id" th:field="*{id}">
 					<div class="mb-3">
-						<label for="diaSemana" class="form-label">Nome dia</label>
-						<input type="text" class="form-control" id="diaSemana" th:field="*{diaSemana}">
+						<label for="dia" class="form-label">Nome dia</label>
+						<input type="text" class="form-control" id="dia" th:field="*{name}">
 					</div>
 					<button type="submit" class="btn btn-primary">Enviar</button>
+					<button type="submit" class="btn btn-primary"><a class="nav-link" href="/dias">Voltar</a></button>
 				</form>
 			</div>
 			<div class="col-2"></div>

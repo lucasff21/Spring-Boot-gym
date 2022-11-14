@@ -32,13 +32,15 @@
 							<select th:field="*{dia}" class="form-control" multiple="multiple" required>
 							<option value="">Selecione o dia...</option>
 							<th:bloclk th:each="dia : ${listaDias}">
-								<option th:value="${dia.id}" th:text="${dia.diaSemana}"></option>
+								<option th:value="${dia.id}" th:text="${dia.name}"></option>
 							</th:bloclk>
 							</select>
 						</div>
 					</div>
 
-					<button type="submit" class="btn btn-primary">Enviar</button>
+					<button type="submit" class="btn btn-primary">Enviar</button> 
+					<button type="submit" class="btn btn-primary"><a class="nav-link" href="/musculos">Voltar</a></button> 
+					
 				</form>
 			</div>
 			<div class="col-2"></div>

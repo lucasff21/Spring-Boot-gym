@@ -1,36 +1,39 @@
 package com.gym.projetogym.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 
 @Entity
-public class DiaSemana implements Serializable{
+public class Dia implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String diaSemana;
+	private String name;
 	
-	@OneToMany(mappedBy = "dia")
-	private List<Musculo> musculo = new ArrayList<>();
+	@ManyToMany(mappedBy = "dias")
+	@JsonIgnore
+	private Set<Musculo> musculo = new HashSet<>();
 	
-	public DiaSemana() {
+	public Dia() {
 		
 	}
 
-	public DiaSemana(Long id, String diaSemana) {
+	public Dia(Long id, String name) {
 		super();
 		this.id = id;
-		this.diaSemana = diaSemana;
+		this.name = name;
 	}
 
 	public Long getId() {
@@ -41,19 +44,19 @@ public class DiaSemana implements Serializable{
 		this.id = id;
 	}
 
-	public String getDiaSemana() {
-		return diaSemana;
+	public String getName() {
+		return name;
 	}
 
-	public void setDiaSemana(String diaSemana) {
-		this.diaSemana = diaSemana;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public List<Musculo> getMusculo() {
+	public Set<Musculo> getMusculo() {
 		return musculo;
 	}
 
-	public void setMusculo(List<Musculo> musculo) {
+	public void setMusculo(Set<Musculo> musculo) {
 		this.musculo = musculo;
 	}
 
@@ -70,8 +73,13 @@ public class DiaSemana implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DiaSemana other = (DiaSemana) obj;
+		Dia other = (Dia) obj;
 		return Objects.equals(id, other.id);
 	}
 
+	@Override
+	public String toString() {
+		return name;
+	}
+	
 }

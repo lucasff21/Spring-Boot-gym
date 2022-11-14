@@ -2,8 +2,10 @@ package com.gym.projetogym.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -12,7 +14,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -28,22 +31,20 @@ public class Musculo implements Serializable{
 	@OneToMany(mappedBy = "musculo")
 	private List<Exercicio> exercicio = new ArrayList<>();
 	
-	@ManyToOne
-	@JoinColumn(name = "dia_id")
-	@JsonIgnore
-	private DiaSemana dia;
+	@ManyToMany
+	@JoinTable(name = "tb_musculo_dia", joinColumns = @JoinColumn(name = "musculo_id"), inverseJoinColumns = @JoinColumn(name = "dia_id"))
+	private Set<Dia> dias = new HashSet<>();
 	
 	public Musculo() {
 		
 	}
 
 
-	public Musculo(Long id, String name, String observacao, DiaSemana dia) {
+	public Musculo(Long id, String name, String observacao) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.observacao = observacao;
-		this.dia = dia;
 	}
 
 	public Long getId() {
@@ -74,13 +75,13 @@ public class Musculo implements Serializable{
 		return exercicio;
 	}
 	
-	public DiaSemana getDia() {
-		return dia;
+	public Set<Dia> getDia() {
+		return dias;
 	}
 
 
-	public void setDia(DiaSemana dia) {
-		this.dia = dia;
+	public void setDia(Set<Dia> dia) {
+		this.dias = dia;
 	}
 
 

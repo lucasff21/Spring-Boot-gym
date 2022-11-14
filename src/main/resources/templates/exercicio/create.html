@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-2"></div>
 			<div class="col">
-				<h2>Adicionar Musculo </h2>
+				<h2>Adicionar Exercicio </h2>
 				<form action="#" th:action="@{/exercicios/salvar}" th:object="${exercicio}" method="POST">
 					<input type="hidden" id="id" th:field="*{id}">
 					<div class="mb-3">
@@ -47,6 +47,7 @@
 
 					</div>
 					<button type="submit" class="btn btn-primary">Enviar</button>
+					<button type="submit" class="btn btn-primary"><a class="nav-link" href="/exercicios">Voltar</a></button>
 				</form>
 			</div>
 			<div class="col-2"></div>

@@ -15,37 +15,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.gym.projetogym.model.DiaSemana;
+import com.gym.projetogym.model.Dia;
 import com.gym.projetogym.service.DiaSemanaService;
 
 @RestController
-@RequestMapping(value = "/api/diasemana")
+@RequestMapping(value = "/api/dia")
 public class DiaSemanaController {
 
 	@Autowired
 	private DiaSemanaService diaServ;
 	
 	@GetMapping
-	public ResponseEntity<List<DiaSemana>> getDias(){
-		List<DiaSemana> dias = diaServ.findAll();
+	public ResponseEntity<List<Dia>> getDias(){
+		List<Dia> dias = diaServ.findAll();
 		return ResponseEntity.ok().body(dias);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<DiaSemana> getById(@PathVariable Long id){
-		DiaSemana diaId = diaServ.findById(id);
+	public ResponseEntity<Dia> getById(@PathVariable Long id){
+		Dia diaId = diaServ.findById(id);
 		return ResponseEntity.ok().body(diaId);
 	}
 	
 	@PostMapping
-	public ResponseEntity<DiaSemana> createDia(@RequestBody DiaSemana diaCreate){
+	public ResponseEntity<Dia> createDia(@RequestBody Dia diaCreate){
 		diaCreate = diaServ.insert(diaCreate);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(diaCreate.getId()).toUri();
 		return ResponseEntity.created(uri).body(diaCreate);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<DiaSemana> updateDia(@PathVariable Long id, @RequestBody DiaSemana diaCreate){
+	public ResponseEntity<Dia> updateDia(@PathVariable Long id, @RequestBody Dia diaCreate){
 		diaCreate = diaServ.update(id, diaCreate);
 		return ResponseEntity.ok().body(diaCreate);
 	}
