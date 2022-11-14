@@ -1,5 +1,6 @@
 # Spring-Boot-gym
 Utilizei uma inspiração que eu tinha para elaborar este projeto, sendo assim, nele você poderá adicionar os dias na semena que frequenta a academia, os musculos e exercicios.
+<br>
 Tentei aplicar os conhecimentos que venho adquirindo e tentarei lista-los:
 1° Crud Utilizando JPA. Criei um primeiro Crud na pasta "Controllers" para ser testado como API, e o segundo na pasta Crud na pasta ControllersThyme" onde refiz praticamente a mesma coisa, porém focando em telas no thymeleaf.
 2° Utilizei alguns relacionamentos, sendo eles: OneToMany e ManyToMany. 
