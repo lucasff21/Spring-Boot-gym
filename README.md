@@ -20,7 +20,7 @@ A aplicação consiste em uma montagem de ficha de treino, onde os dados são pr
 ![alt text](https://i.imgur.com/zgpKe5w.png)
 ![alt text](https://i.imgur.com/m2KqcO8.png)
 
-### Layout Thymeleaf (Visão geral)
+## Layout Thymeleaf (Visão geral)
 
 ![alt text](https://i.imgur.com/Nd58PAB.png)
 
