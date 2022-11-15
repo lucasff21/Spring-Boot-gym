@@ -1,12 +1,56 @@
-# Spring-Boot-gym
-Utilizei uma inspiração que eu tinha para elaborar este projeto, sendo assim, nele você poderá adicionar os dias na semena que frequenta a academia, os musculos e exercicios.
-<br>
-Tentei aplicar os conhecimentos que venho adquirindo e tentarei lista-los:
-<br>
-1° Crud Utilizando JPA. Criei um primeiro Crud na pasta "Controllers" para ser testado como API, e o segundo na pasta Crud na pasta ControllersThyme" onde refiz praticamente a mesma coisa, porém focando em telas no thymeleaf.
-<br>
-2° Utilizei alguns relacionamentos, sendo eles: OneToMany e ManyToMany. 
-  2.1: OneToMany entre Exericios e Musculos
-  2.2: ManyToMany entre Musculos e Dias.
-3° Querys: Utilizei Querys para realizar buscas no MySql;
-4° Apliquei algumas regras afrim de impedir que o usuario tenha retorna de algum ação errada. Ex: Pesquisar id inexistente
+# Gym Spring Boot
+_____________________________________________________
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+## Sobre o projeto
+_____________________________________________________
+Gym Spring Boot é uma aplicação inicialmente desenvolvida apenas Back-end, 
+porém, com o caminhar do projeto também foi utilizado Thymeleaf, para consumir aplicação.
+
+A aplicação consiste em uma montagem de ficha de treino, onde os dados são preenchidos e os usuários podem utilizar, além de poder customizar sua própria ficha.
+
+## Postman
+_____________________________________________________
+
+![alt text](https://i.imgur.com/ph33i5W.png)
+
+## Layout Thymeleaf
+_____________________________________________________
+![alt text](https://i.imgur.com/TVmdG8c.png)
+![alt text](https://i.imgur.com/zgpKe5w.png)
+![alt text](https://i.imgur.com/m2KqcO8.png)
+
+### Layout Thymeleaf (Visão geral)
+_____________________________________________________
+![alt text](https://i.imgur.com/Nd58PAB.png)
+
+# Modelo conceitual
+_____________________________________________________
+
+![alt text](https://i.imgur.com/09mVrrR.png)
+
+# Tecnologias Utilizadas
+_____________________________________________________
+ ## Back End
+ _____________________________________________________
+ - Java
+ - Spring Boot
+ - JPA / Hibernate
+ - Maven
+ 
+## Front End
+_____________________________________________________
+- HTML / CSS 
+- Boot Strap
+
+## Base de Dados
+_____________________________________________________
+- MySQL
+
+
+## Configurações Do Projeto
+_____________________________________________________
+- Java 17 (LTS)
+- Spring Boot 3
+- MySQL 8.0.31
