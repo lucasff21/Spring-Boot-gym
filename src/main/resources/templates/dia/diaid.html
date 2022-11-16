@@ -36,7 +36,6 @@
 							<th scope="col">Nome</th>
 							<th scope="col">Descrição</th>
 							<th scope="col">Dias</th>
-							<th scope="col">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -47,10 +46,6 @@
 							</td>
 							<td th:text="${obj.observacao}"></td>
 							<td th:text="${obj.dia}"></td>
-							<td>
-								<a th:href="@{/musculos/{id}(id=${obj.id})}" class="btn btn-primary"> Alterar </a>
-								<a th:href="@{/musculos/excluir/{id}(id=${obj.id})}" class="btn btn-danger">Excluir </a>
-							</td>
 						</tr>
 					</tbody>
 				</table>
